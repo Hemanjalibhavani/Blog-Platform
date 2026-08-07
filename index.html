@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>My Blog Platform</h1>
+    <p>Create posts and add comments</p>
+  </header>
+
+  <!-- Create Blog Post -->
+  <section class="create-post">
+    <h2>Create Blog Post</h2>
+
+    <input type="text" id="postTitle" placeholder="Enter Blog Title">
+
+    <textarea id="postContent" placeholder="Write your blog content..."></textarea>
+
+    <button onclick="addPost()">Publish Post</button>
+  </section>
+
+  <!-- Blog Posts -->
+  <section id="blogContainer" class="blog-container">
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
