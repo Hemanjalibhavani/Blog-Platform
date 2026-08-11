@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sign Up | BlogSphere</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="logo">
+                ✍️ BlogSphere
+            </div>
+
+            <h1>Create Account 🚀</h1>
+
+            <p>
+                Join our blogging community.
+            </p>
+
+
+            <input
+                type="text"
+                id="signupUsername"
+                placeholder="Choose username"
+            >
+
+
+            <input
+                type="email"
+                id="signupEmail"
+                placeholder="Email address"
+            >
+
+
+            <input
+                type="password"
+                id="signupPassword"
+                placeholder="Create password"
+            >
+
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password"
+            >
+
+
+            <button
+                class="primary-btn"
+                onclick="signupUser()"
+            >
+                Create Account
+            </button>
+
+
+            <p class="auth-link">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+
+            <a href="index.html">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+
+<script>
+
+function signupUser() {
+
+    const username =
+        document
+        .getElementById("signupUsername")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("signupEmail")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("signupPassword")
+        .value;
+
+
+    const confirmPassword =
+        document
+        .getElementById("confirmPassword")
+        .value;
+
+
+    if (
+        !username ||
+        !email ||
+        !password ||
+        !confirmPassword
+    ) {
+
+        alert(
+            "Please fill all fields."
+        );
+
+        return;
+    }
+
+
+    if (password !== confirmPassword) {
+
+        alert(
+            "Passwords do not match."
+        );
+
+        return;
+    }
+
+
+    if (password.length < 6) {
+
+        alert(
+            "Password must contain at least 6 characters."
+        );
+
+        return;
+    }
+
+
+    const user = {
+
+        username: username,
+
+        email: email,
+
+        password: password
+
+    };
+
+
+    localStorage.setItem(
+        "blogUser",
+        JSON.stringify(user)
+    );
+
+
+    alert(
+        "Account created successfully! 🎉"
+    );
+
+
+    window.location.href =
+        "login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
