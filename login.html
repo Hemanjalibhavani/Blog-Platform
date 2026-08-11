@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login | BlogSphere</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="logo">
+                ✍️ BlogSphere
+            </div>
+
+            <h1>Welcome Back 👋</h1>
+
+            <p>
+                Login to continue blogging.
+            </p>
+
+
+            <input
+                type="text"
+                id="loginUsername"
+                placeholder="Username"
+            >
+
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+
+            <button
+                class="primary-btn"
+                onclick="loginUser()"
+            >
+                Login
+            </button>
+
+
+            <p class="auth-link">
+
+                Don't have an account?
+
+                <a href="signup.html">
+                    Create Account
+                </a>
+
+            </p>
+
+
+            <a href="index.html">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+
+<script>
+
+function loginUser() {
+
+    const username =
+        document
+        .getElementById("loginUsername")
+        .value
+        .trim();
+
+    const password =
+        document
+        .getElementById("loginPassword")
+        .value;
+
+
+    const storedUser =
+        JSON.parse(
+            localStorage.getItem(
+                "blogUser"
+            )
+        );
+
+
+    if (!storedUser) {
+
+        alert(
+            "Account not found. Please sign up first."
+        );
+
+        return;
+    }
+
+
+    if (
+        username === storedUser.username &&
+        password === storedUser.password
+    ) {
+
+        localStorage.setItem(
+            "currentUser",
+            username
+        );
+
+
+        alert(
+            "Login successful! 🎉"
+        );
+
+
+        window.location.href =
+            "index.html";
+
+    }
+
+    else {
+
+        alert(
+            "Invalid username or password."
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
